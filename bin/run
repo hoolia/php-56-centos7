@@ -2,10 +2,10 @@
 
 ## Support Arbitrary User IDs
 sed -e "s/48:48/$(id -u):$(id -g)/g" /etc/passwd >/tmp/passwd
-export LD_PRELOAD=libnss_wrapper.so
+export LD_PRELOAD=/usr/lib64/libnss_wrapper.so
 export NSS_WRAPPER_PASSWD=/tmp/passwd
 export NSS_WRAPPER_GROUP=/etc/group
 ## See https://docs.openshift.org/latest/creating_images/guidelines.html#openshift-origin-specific-guidelines
 
-exec /usr/libexec/s2i/run.org
+exec env LD_PRELOAD=/usr/lib64/libnss_wrapper.so NSS_WRAPPER_PASSWD=/tmp/passwd NSS_WRAPPER_GROUP=/etc/group /usr/libexec/s2i/run.org
 
