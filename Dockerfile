@@ -4,6 +4,7 @@ USER 0
 
 RUN yum install -y ssmtp nss_wrapper \
  && chmod 777 /etc/ssmtp \
+ && chmod g-s /usr/sbin/ssmtp \
  && mv /usr/libexec/s2i/run /usr/libexec/s2i/run.org
 ADD etc/ssmtp/ssmtp.conf /etc/ssmtp/ssmtp.conf
 ADD bin/run /usr/libexec/s2i/run
