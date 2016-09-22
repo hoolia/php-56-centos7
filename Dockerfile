@@ -9,5 +9,6 @@ RUN yum install -y ssmtp nss_wrapper php-pecl-memcached \
  && mv /usr/libexec/s2i/run /usr/libexec/s2i/run.org
 ADD etc/ssmtp/ssmtp.conf /etc/ssmtp/ssmtp.conf
 ADD bin/run /usr/libexec/s2i/run
+ADD etc/php.d/41-memcached.ini /etc/opt/rh/rh-php56/php.d/41-memcached.ini
 
 USER 1001
