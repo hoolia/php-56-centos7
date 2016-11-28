@@ -2,6 +2,10 @@ FROM centos/php-56-centos7:latest
 
 USER 0
 
+RUN env
+RUN cat /etc/resolv.conf
+RUN find /run/secrets/
+
 RUN yum install -y ssmtp nss_wrapper rh-php56-php-devel libmemcached-devel libmemcached \
 # php-pecl-memcached \
 # && cp /usr/lib64/php/modules/memcached.so \
