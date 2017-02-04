@@ -6,6 +6,7 @@ RUN env
 RUN cat /etc/resolv.conf
 RUN find /run/secrets/
 
+RUN yum install -y http://epel.mirror.nucleus.be//7Server/x86_64/e/epel-release-7-9.noarch.rpm
 RUN yum install -y ssmtp nss_wrapper rh-php56-php-devel libmemcached-devel libmemcached \
 # php-pecl-memcached \
 # && cp /usr/lib64/php/modules/memcached.so \
